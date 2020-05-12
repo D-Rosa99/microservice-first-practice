@@ -1,0 +1,38 @@
+{
+  "name": "microservice-first-practice",
+  "version": "1.0.0",
+  "description": "A back-end proyecto to practice about microservice",
+  "main": "index.js",
+  "scripts": {
+    "start:express": "nodemon express-postgres/index.js",
+    "start:hapi": "nodemon hapi-mongodb/index.js",
+    "start": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D-Rosa99/microservice-first-practice.git"
+  },
+  "keywords": [
+    "@hapi/hapi",
+    "Express",
+    "Mongoose",
+    "Sequelize"
+  ],
+  "author": "David De La Rosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/D-Rosa99/microservice-first-practice/issues"
+  },
+  "homepage": "https://github.com/D-Rosa99/microservice-first-practice#readme",
+  "dependencies": {
+    "@hapi/hapi": "19.1.1",
+    "express": "4.17.1",
+    "mongoose": "5.9.13",
+    "pg": "8.1.0",
+    "pg-hstore": "2.3.3",
+    "sequelize": "5.21.8"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.3"
+  }
+}
