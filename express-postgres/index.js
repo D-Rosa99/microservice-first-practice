@@ -1,28 +1,26 @@
+const Sequelize = require('sequelize');
 const express = require('express');
-const mongoose = require('mongoose');
 const app = express();
 
-const Book = mongoose.model(
-  'book',
-  new mongoose.Schema({
-    title: {
-      type: String,
-      required: true,
-    },
-  })
-);
+const db = new Sequelize('microservice', 'postgres', 'postgres', {
+  host: 'db-postgres',
+  dialect: 'postgres',
+});
+
+const Genre = db.define('genre', {
+  name: { type: Sequelize.STRING, allowNull: false },
+});
 
 app.use(express.json());
 
 app.get('/', async (req, res) => {
-  const getBook = await Book.find();
+  const getBook = await Genre.findAll();
   return res.json(getBook);
 });
 
 app.post('/', async (req, res) => {
   const userInput = req.body;
-  const postBook = new Book(userInput);
-  await postBook.save();
+  const postBook = new Genre.create(userInput);
   return res.json(postBook);
 });
 

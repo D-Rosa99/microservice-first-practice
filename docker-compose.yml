@@ -1,0 +1,32 @@
+version: '3'
+services:
+  app:
+    image: microservice
+    restart: always
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/usr/app'
+      - '/node_modules'
+    depends_on:
+      - db-postgres
+      - db-mongo
+
+  db-postgres:
+    image: postgres:12.2-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: intellisys-training
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+ db-mongo:
+    restart: always
+    image: mongo
+    ports:
+        - '27017:27017'
