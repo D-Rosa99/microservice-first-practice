@@ -1,13 +1,13 @@
 FROM node:12.16.3-alpine
 
-WORKDIR /usr/app
+WORKDIR /usr/app/express-postgress
 
-COPY package*.json ./
+COPY ./express-postgres/package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY ./express-postgres .
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start:express"]
+CMD ["npm", "start"]

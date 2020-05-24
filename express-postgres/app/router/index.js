@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const postBook = new Book.create(req.body);
+  const postBook = await Book.create(req.body);
   return res.json(postBook);
 });
 

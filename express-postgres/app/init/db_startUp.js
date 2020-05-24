@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 
-export default new Sequelize('microservice', 'postgres', 'postgres', {
-  host: 'localhost',
+export default new Sequelize('playground', 'postgres', 'postgres', {
+  host: 'db',
   dialect: 'postgres',
 });
